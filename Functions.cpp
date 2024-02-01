@@ -78,7 +78,7 @@ void quickSort(char arr[], int leftIndex, int rightIndex)
 }
 
 // Бинарный поиск
-int binarySearch(char arr[], int size, char target)
+int binarySearch(char arr[], int size, char key)
 {
     int left = 0;          // Индекс левой границы текущего интервала
     int right = size - 1;  // Индекс правой границы текущего интервала
@@ -90,12 +90,12 @@ int binarySearch(char arr[], int size, char target)
         int mid = left + (right - left) / 2;
 
         // Если элемент найден, возвращаем его индекс
-        if (arr[mid] == target)
+        if (arr[mid] == key)
         {
             return mid;  
         }
         // Если элемент в правой половине, сдвигаем левую границу
-        else if (arr[mid] < target)
+        else if (arr[mid] < key)
         {
             left = mid + 1;  
         }
