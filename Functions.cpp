@@ -1,5 +1,14 @@
 #include "Functions.h"
 
+void displayArray(char arr[], int size) 
+{
+    for (int i = 0; i < size; i++) 
+    {
+        cout << arr[i] << " ";
+    }
+    cout << endl;
+}
+
 // ѕростой метод сортировки (сортировка выбором)
 void selectionSort(char arr[], int size)
 {

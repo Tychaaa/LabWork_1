@@ -13,18 +13,12 @@ int main()
     int n = sizeof(arr) / sizeof(arr[0]);
 
     cout << "Исходный массив: ";
-    for (int i = 0; i < n; i++) {
-        cout << arr[i] << " ";
-    }
-    cout << endl;
+    displayArray(arr, n);
 
     selectionSort(arr, n);
 
     cout << "Отсортированный массив: ";
-    for (int i = 0; i < n; i++) {
-        cout << arr[i] << " ";
-    }
-    cout << endl;
+    displayArray(arr, n);
 
     return 0;
 }
