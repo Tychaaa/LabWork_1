@@ -14,3 +14,6 @@ void selectionSort(char arr[], int n);
 
 // Улучшенный метод сортировки (Быстрая сортировка Хоара)
 void quickSort(char arr[], int leftIndex, int rightIndex);
+
+// Бинарный поиск
+int binarySearch(char arr[], int size, char target);

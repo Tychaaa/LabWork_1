@@ -50,15 +50,15 @@ void quickSort(char arr[], int leftIndex, int rightIndex)
     // Индексы указывают на начало и конец текущего сегмента массива
     int i = leftIndex, j = rightIndex;
     // Выбираем средний элемент в качестве опорного
-    char middle_element = arr[(leftIndex + rightIndex) / 2];
+    char pivot = arr[(leftIndex + rightIndex) / 2];
 
     // Цикл пока левый индекс не превышает правый
     while (i <= j) 
     {
         // Находим элемент справа от опорного, который меньше опорного
-        while (arr[i] < middle_element) i++;
+        while (arr[i] < pivot) i++;
         // Находим элемент слева от опорного, который больше опорного
-        while (arr[j] > middle_element) j--;
+        while (arr[j] > pivot) j--;
 
         // Если найдены элементы для обмена
         if (i <= j) 
@@ -75,4 +75,36 @@ void quickSort(char arr[], int leftIndex, int rightIndex)
         quickSort(arr, leftIndex, j);
     if (i < rightIndex)
         quickSort(arr, i, rightIndex);
+}
+
+// Бинарный поиск
+int binarySearch(char arr[], int size, char target)
+{
+    int left = 0;          // Индекс левой границы текущего интервала
+    int right = size - 1;  // Индекс правой границы текущего интервала
+
+    // Пока левая граница не превышает правую
+    while (left <= right)
+    {
+        // Вычисляем середину интервала
+        int mid = left + (right - left) / 2;
+
+        // Если элемент найден, возвращаем его индекс
+        if (arr[mid] == target)
+        {
+            return mid;  
+        }
+        // Если элемент в правой половине, сдвигаем левую границу
+        else if (arr[mid] < target)
+        {
+            left = mid + 1;  
+        }
+        // Если элемент в левой половине, сдвигаем правую границу
+        else
+        {
+            right = mid - 1; 
+        }
+    }
+
+    return -1; // Элемент не найден
 }
