@@ -1,5 +1,6 @@
 #include "Functions.h"
 
+// Вывод массива в консоль
 void displayArray(char arr[], int size) 
 {
     for (int i = 0; i < size; i++) 
@@ -9,7 +10,15 @@ void displayArray(char arr[], int size)
     cout << endl;
 }
 
-// Простой метод сортировки (сортировка выбором)
+// Функция обмена значений двух переменных
+void swap(char& a, char& b) 
+{
+    char temp = a;
+    a = b;
+    b = temp;
+}
+
+// Простой метод сортировки (Сортировка выбором)
 void selectionSort(char arr[], int size)
 {
     for (int i = 0; i < size; i++)
@@ -31,8 +40,39 @@ void selectionSort(char arr[], int size)
         }
 
         // Обмениваем минимальный элемент с текущим элементом на позиции i
-        char temp = arr[i];
-        arr[i] = arr[minIndex];
-        arr[minIndex] = temp;
+        swap(arr[i], arr[minIndex]);
     }
+}
+
+// Улучшенный метод сортировки (Быстрая сортировка Хоара)
+void quickSort(char arr[], int leftIndex, int rightIndex) 
+{
+    // Индексы указывают на начало и конец текущего сегмента массива
+    int i = leftIndex, j = rightIndex;
+    // Выбираем средний элемент в качестве опорного
+    char middle_element = arr[(leftIndex + rightIndex) / 2];
+
+    // Цикл пока левый индекс не превышает правый
+    while (i <= j) 
+    {
+        // Находим элемент справа от опорного, который меньше опорного
+        while (arr[i] < middle_element) i++;
+        // Находим элемент слева от опорного, который больше опорного
+        while (arr[j] > middle_element) j--;
+
+        // Если найдены элементы для обмена
+        if (i <= j) 
+        {
+            // Обмениваем элементы и двигаем индексы
+            swap(arr[i], arr[j]);
+            i++;
+            j--;
+        }
+    }
+
+    // Рекурсивно сортируем левую и правую части
+    if (leftIndex < j)
+        quickSort(arr, leftIndex, j);
+    if (i < rightIndex)
+        quickSort(arr, i, rightIndex);
 }

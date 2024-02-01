@@ -9,16 +9,18 @@ int main()
     SetConsoleCP(1251);
     SetConsoleOutputCP(1251);
 
-    char arr[] = { 'd', 'b', 'a', 'c', 'e' };
-    int n = sizeof(arr) / sizeof(arr[0]);
+    char arr[] = { 'd', 'b', 'a', 'c', 'e', 'g', 'f' };
+    int size = sizeof(arr) / sizeof(arr[0]);
 
     cout << "Исходный массив: ";
-    displayArray(arr, n);
+    displayArray(arr, size);
 
-    selectionSort(arr, n);
+    selectionSort(arr, size);
+
+    /*quickSort(arr, 0, size - 1);*/
 
     cout << "Отсортированный массив: ";
-    displayArray(arr, n);
+    displayArray(arr, size);
 
     return 0;
 }
