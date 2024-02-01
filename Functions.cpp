@@ -10,6 +10,14 @@ void displayArray(char arr[], int size)
     cout << endl;
 }
 
+// Функция для отображения элементов вектора
+void displayVector(const vector<char>& vec) {
+    for (char elem : vec) {
+        cout << elem << " ";
+    }
+    cout << endl;
+}
+
 // Функция обмена значений двух переменных
 void swap(char& a, char& b) 
 {

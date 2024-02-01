@@ -1,10 +1,14 @@
 #pragma once
 #include <iostream>
+#include <vector>
 
 using namespace std;
 
 // Вывод массива в консоль
 void displayArray(char arr[], int size);
+
+// Функция для отображения элементов вектора
+void displayVector(const vector<char>& vec);
 
 // Функция обмена значений двух переменных
 void swap(char& a, char& b);
